@@ -7,17 +7,83 @@
     <title>Document</title>
 </head>
 <body>
-    git config --global user.name  配置用户名
-    git config --global user.email 配置邮箱
+    git config --global user.name       配置用户名
+    git config --global user.email      配置邮箱
 
-    git help config  获取帮助手册
-    git config -h    同上 简写 
+    git help config                     获取帮助手册
+    git config -h                       同上 简写 
     
-    git init    初始化仓库 将当前项目目录转化为git仓库 生成.git文件
+    git init       初始化仓库 将当前项目目录转化为git仓库 生成.git文件
 
-    git status     检查文件的状态
-    git status -s  同上 简写  未跟踪文件前面有红色??
+    git status     检查文件的状态  已修改没放暂存是红色modified 放暂存后是绿色
+    git status -s  同上  未跟踪文件是红色?? 跟踪之后会变成A 已修改变成M
 
+    git add xxx.html              添加文件
+    git commit -m "新建了xxx文件"   提交文件 修改状态可以再执行git add、git commit -m
+    git commit -m "新建了xxx文件" 文件   提交某个文件 
+    
+
+    git checkout -- xxx.html    撤销修改  (危险！谨慎操作) 适用于没有add过的文件 add过的需要reset
+
+    git add .                   批量添加文件夹内所有文件 空格+.
+    git reset HEAD xxx.xxx      从暂存区中移除
+
+    git commit -a -m            跳过add操作和暂存区,直接提交
+
+    git rm -f xxx.xxx           移除文件(从仓库和工作区同时移除)
+    git rm -cached xxx.xxx      移除文件(只从仓库(暂存区)移除,保留工作区中的文件)
+
+    git log                      查看提交历史  按回车往下翻 按Q退出查看模式
+    git log -2                   查看最近两条
+    git log --pretty=oneline     一行内显示
+    git log --pretty=format:"%h(id)|%an(作者名字)|%ar(修改日期)|%s(提交说明)    "                            自定义格式
+
+    git reset --hard id       切换版本  切换回旧版本无法用git log查看之前的log
+    git reflog --pretty=oneline  旧版本中查看所有历史
+    git log id -p             查看这条提交记录具体修改了什么内容
+    git diff                     表示未使用add命令时的修改
+
+
+    git push -u origin master   第一次推送到远程仓库
+    git push                    第二次以后直接推送
+
+    
+
+    glob模式:
+    .gitignore   
+    #开头注释  
+    /开头防止递归  
+    /结尾是目录  
+    !开头表示取反
+    * 匹配0个或多个任意字符
+    [abc]匹配任何一个列在括号内的字符 匹配一个a或一个b或一个c
+    ? 问号只匹配一个任意字符
+    ** 匹配任意中间目录 如a/**/z可以匹配a/z  a/b/z  a/b/c/z等
+    -  [0-9]表示可以匹配0-9内的所有数字
+
+    例：
+    *.a   
+    #忽略所有的.a文件
+
+    !lib.a
+    #但跟踪所有的lib.a  即使你在前面忽略了.a文件
+
+    /TODO
+    #只忽略当前目录下的TODO文件,不忽略subdir/TODO
+
+    build/
+    #忽略任何目录下名为build的文件夹
+
+    doc/*.txt
+    #忽略doc/notes.txt 但不忽略doc/server/arch.txt
+
+    doc/**/*.pdf
+    #忽略doc/目录及其所有子目录下的pdf文件
+    
+
+
+
+    
     
 
 

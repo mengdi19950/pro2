@@ -38,16 +38,30 @@
     git log --pretty=oneline     一行内显示
     git log --pretty=format:"%h(id)|%an(作者名字)|%ar(修改日期)|%s(提交说明)    "                            自定义格式
 
-    git reset --hard id       切换版本  切换回旧版本无法用git log查看之前的log
+    git reset --hard id          切换版本  切换回旧版本无法用git log查看之前的log
     git reflog --pretty=oneline  旧版本中查看所有历史
-    git log id -p             查看这条提交记录具体修改了什么内容
+    git log id -p                查看这条提交记录具体修改了什么内容
     git diff                     表示未使用add命令时的修改
 
 
     git push -u origin master   第一次推送到远程仓库
     git push                    第二次以后直接推送
+    git branch                  查看分支列表
+    git branch 分支名            创建分支
+    git checkout 分支名          切换分支
+    git checkout -b             创建并切换到该分支(常用！！)
 
     
+
+
+
+
+
+
+
+
+
+
 
     glob模式:
     .gitignore   

@@ -40,27 +40,38 @@
     git log --pretty=oneline     一行内显示
     git log --pretty=format:"%h(id)|%an(作者名字)|%ar(修改日期)|%s(提交说明)    "                            自定义格式
 
-    git reset --hard id          切换版本  切换回旧版本无法用git log查看之前的log
-    git reflog --pretty=oneline  旧版本中查看所有历史
+    git reset --hard id          切换版本 切换回旧版本无法用git log查看之前的log 较危险
+    git checkout id              较安全
+    git reflog --pretty=oneline  旧版本中查看所有历史  精简版查看版本信息
     git log id -p                查看这条提交记录具体修改了什么内容
     git diff                     表示未使用add命令时的修改
 
 
     git push -u origin master   第一次推送到远程仓库
     git push                    第二次以后直接推送
+
     git branch                  查看分支列表
     git branch 分支名            创建分支
     git branch -d 分支名         删除分支
+    git branch -D 分支名         强制删除分支 即使没有合并也会删除！
+
     git checkout 分支名          切换分支
     git checkout -b             创建并切换到该分支(常用！！)
     
 
-    git push -u origin 本地分支名：远程分支名    把分支推送到远程仓库，不写远程默认本地名
-    git remote show origin                   展示远程仓库中所有分支列表名字
-    git checkout 远程分支名                    把远程仓库里的分支下载到本地
+    git push -u origin 本地分支名：远程分支名    #把分支推送到远程仓库，不写远程默认本地名
+    git remote show origin                   #展示远程仓库中所有分支列表名字
+    
+    git checkout 远程分支名                    #把远程仓库里的分支下载到本地
     例:git checkout reg
-    git checkout -b 本地分支名 远程仓库名/远程分支名  把远程分支下载到本地并重命名
+    
+    git checkout -b 本地分支名 远程仓库名/远程分支名      #把远程分支下载到本地并重命名
     例:git checkout -b reg origin/register
+
+    git push 远程仓库名称(origin) --delete 要删除的远程分支名     #删除远程分支
+
+    git clone 和git pull 的区别: 克隆是本地完全没有文件，需要所有的文件。pull是本地有文件，需要下载更新的数据用来合并
+
 
 
 
